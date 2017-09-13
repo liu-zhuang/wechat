@@ -18,7 +18,7 @@
     "production" : {
       "user" : "root",
       // Multi host is possible, just by passing IPs/hostname as an array
-      "host" : ["45.78.15.132 "],
+      "host" : ["45.78.15.132"],
       // Branch
       "ref"  : "origin/master",
       // Git repository to clone
