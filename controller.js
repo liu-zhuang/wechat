@@ -17,7 +17,7 @@ var SetRouter = function (path) {
 	for (var js of jsFiles) {
 		let mapping = require(__dirname + '/' + path + '/' + js); //分别引入每个js文件
 		for (var url in mapping) {
-			// 便利每个controller文件中的路由
+			// 遍历每个controller文件中的路由
 			if(url.startsWith('Get')) {
 				// method: get
 				router.get(url.replace('Get ',''), mapping[url]);
