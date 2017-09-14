@@ -16,7 +16,7 @@
   // Here you describe each environment
   "deploy" : {
     "production" : {
-      "user" : "lz",
+      "user" : "root",
       // Multi host is possible, just by passing IPs/hostname as an array
       "host" : ["45.78.15.132"],
       // Branch
