@@ -1,6 +1,6 @@
 var Koa = require('koa');
 var app = new Koa();
-var router = require('./controller.js')();
+// var router = require('./controller.js')();
 
 var sha1 = require('sha1');
 var bodyParser = require('koa-bodyparser');
