@@ -25,7 +25,8 @@ let server = http.createServer((req, res) => {
 	res.writeHead(200, {
 		'Content-type': "text/plain"
 	})
-	res.write('hello pm2');
+	res.write('hello pm2  this is new');
 	res.end();
 });
 server.listen(3000);
+console.log('listening port 3000');
