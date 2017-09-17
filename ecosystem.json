@@ -16,16 +16,16 @@
   // Here you describe each environment
   "deploy" : {
     "production" : {
-      "user" : "root",
+      "user" : "lz",
       // Multi host is possible, just by passing IPs/hostname as an array
       "host" : ["45.78.15.132"],
-      "port": 33333,
+      "port" : "33333",
       // Branch
       "ref"  : "origin/master",
       // Git repository to clone
       "repo" : "git@github.com:liu-zhuang/wechat.git",
       // Path of the application on target servers
-      "path" : "/www/website/production",
+      "path" : "/home/lz/www/website/production",
       // Can be used to give options in the format used in the configura-
       // tion file.  This is useful for specifying options for which there
       // is no separate command-line flag, see 'man ssh' 
