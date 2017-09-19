@@ -20,7 +20,7 @@ const check = ctx => {
 	let timestamp = ctx.query.timestamp;
 	let nonce = ctx.query.nonce;
 	let echostr = ctx.query.echostr;
-	let sort = [config.token, timestamp, nonce].sort().join();
+	let sort = [config.token, timestamp, nonce].sort().join('');
 	let sha1 = Sha(sort);
 	console.log(sort);
 	console.log(sha1);
