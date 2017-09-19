@@ -13,12 +13,14 @@ const config = {
 };
 
 const check = ctx => {
+	console.log(ctx);
 	let signature = ctx.request.signature;
 	let timestamp = ctx.request.timestamp;
 	let nonce = ctx.request.nonce;
 	let echostr = ctx.request.echostr;
 	let sort = [config.token, timestamp, nonce].sort();
 	let sha1 = Sha(sort.join());
+	console.log(sha1);
 	if (sha1 === signature) {
 		return true;
 	} else {
