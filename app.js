@@ -23,7 +23,7 @@ const check = ctx => {
 	let sort = [config.token, timestamp, nonce].sort().join();
 	let sha1 = Sha(sort);
 	console.log(sha1);
-	ctx.body = echostr;
+	ctx.response.body = echostr;
 	// if (sha1 === signature) {
 	// 	console.log('success');
 	// 	this.body = echostr + '';
