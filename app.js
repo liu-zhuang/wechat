@@ -13,11 +13,11 @@ const config = {
 };
 
 const check = ctx => {
-	console.log(ctx);
-	let signature = ctx.request.signature;
-	let timestamp = ctx.request.timestamp;
-	let nonce = ctx.request.nonce;
-	let echostr = ctx.request.echostr;
+	console.log(ctx.query);
+	let signature = ctx.query.signature;
+	let timestamp = ctx.query.timestamp;
+	let nonce = ctx.query.nonce;
+	let echostr = ctx.query.echostr;
 	let sort = [config.token, timestamp, nonce].sort();
 	let sha1 = Sha(sort.join());
 	console.log(sha1);
