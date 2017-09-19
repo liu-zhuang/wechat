@@ -23,14 +23,14 @@ const check = ctx => {
 	let timestamp = ctx.query.timestamp;
 	let nonce = ctx.query.nonce;
 	let echostr = ctx.query.echostr;
-	let sort = [config.token, timestamp, nonce].sort();
+	let sort = [config.token, timestamp, nonce].sort().join();
 	console.log(sort);
-	let sha1 = Sha(sort.join());
+	let sha1 = Sha(sort);
 	console.log(sha1);
 	if (sha1 === signature) {
-		return true;
+		this.body = echostr + '';
 	} else {
-		return false;
+		this.body = 'wrong';
 	}
 }
 
