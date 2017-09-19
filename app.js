@@ -34,6 +34,7 @@ const check = ctx => {
 	}
 }
 
+
 app.use(route.get('/', main));
 app.use(route.get('/check', check));
 
