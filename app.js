@@ -1,32 +1,34 @@
-var Koa = require('koa');
-var app = new Koa();
-var router = require('./controller.js')();
+const Koa = require('koa');
+const Sha = require('sha1');
+const route = require('koa-route');
 
-var sha1 = require('sha1');
-var bodyParser = require('koa-bodyparser');
+const app = new Koa();
 
-app.use(async (ctx,next) => {
-	console.log(new Date());
-	await next ();
-});
+const main = ctx => {
+	ctx.response.type = 'html';
+	ctx.response.body = '<h1>wechat</h1>'
+}
+const config = {
+	token: 'liuzhuangtech'
+};
 
+const check = ctx => {
+	let signature = ctx.request.signature;
+	let timestamp = ctx.request.timestamp;
+	let nonce = ctx.request.nonce;
+	let echostr = ctx.request.echostr;
+	let sort = [config.token, timestamp, nonce].sort();
+	let sha1 = Sha(sort.join());
+	if (sha1 === signature) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
-app.use(bodyParser());
-app.use(router);
-
-
+app.use(route.get('/', main));
+app.use(route.get('/check', check));
 
 app.listen(3000);
-console.log('listening port 3000');
 
-// let http = require('http');
-
-// let server = http.createServer((req, res) => {
-// 	res.writeHead(200, {
-// 		'Content-type': "text/plain"
-// 	})
-// 	res.write('hello pm2  this ');
-// 	res.end();
-// });
-// server.listen(3000);
-// console.log('listening port 3000');
+console.log('server is running at 3000');
