@@ -13,7 +13,9 @@ const config = {
 };
 
 const check = ctx => {
-	console.log(ctx.query);
+	console.log('query:'+ctx.query);
+	console.log('----------------')
+	console.log('nonce:'+ctx.query.nonce);
 	let signature = ctx.query.signature;
 	let timestamp = ctx.query.timestamp;
 	let nonce = ctx.query.nonce;
