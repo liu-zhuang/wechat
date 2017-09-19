@@ -9,7 +9,7 @@ const main = ctx => {
 	ctx.response.body = '<h1>wechat</h1>'
 }
 const config = {
-	token: 'liuzhuangtech'
+	token: 'yebaomemeda'
 };
 
 const check = ctx => {
