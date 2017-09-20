@@ -12,7 +12,6 @@
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.2.0",
     "koa-route": "^3.2.0",
-    "koa-router": "^7.1.1",
     "nunjucks": "^3.0.0",
     "sha1": "^1.1.1"
   }
