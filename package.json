@@ -15,5 +15,10 @@
     "koa-route": "^3.2.0",
     "nunjucks": "^3.0.0",
     "sha1": "^1.1.1"
+  },
+  "dependencies": {
+    "js-base64": "^2.3.2",
+    "koa-cors": "0.0.16",
+    "koa2-cors": "^2.0.3"
   }
 }

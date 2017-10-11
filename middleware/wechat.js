@@ -1,5 +1,6 @@
 const Sha = require('sha1');
 const axios = require('axios');
+const crypto = require('crypto');
 
 const config = {
 	appid: 'wx2bb48447b79d4ceb',
@@ -26,7 +27,7 @@ const check = function (option) {
 			ctx.response.body = 'wrong';
 		}
 
-		next();
+		await next();
 	};
 };
 
@@ -41,7 +42,35 @@ const getAccessToken = function () {
 	})
 };
 
-module.exports = {
-	check,
-	getAccessToken
-};	
+
+const getOCR = (ctx, next) => {
+
+	// return new Promise((resolve, reject) => {
+		console.log(ctx);
+		const AppID = '10101761';
+		const SecretID = 'AKID7B1pTwVVXySUemoNQI7qSt7DAwhM83HN';
+		const SecretKey = 'OdhaIpofKoDUccSK1Wq0ykXDJQWXN3Xt';
+		const QQ = '70458055';
+		const TimeStamp = parseInt(Date.now() / 1000);
+		const ExpireTime = parseInt(Date.now() / 1000) + 2592000;
+		const Rdm = parseInt(Math.random() * Math.pow(2, 32));
+
+		var origin = `a=${AppID}&k=${SecretID}&e=${ExpireTime}&t=${TimeStamp}&r=${Rdm}&u=${QQ}`;
+
+		var data = new Buffer(origin,'utf8');
+
+		var res = crypto.createHmac('sha1',SecretKey).update(data).digest();
+
+		var bin = Buffer.concat([res,data]);
+
+		var sign = bin.toString('base64');
+
+		ctx.body = sign;
+	};
+
+
+	module.exports = {
+		check,
+		getAccessToken,
+		getOCR
+	};	
